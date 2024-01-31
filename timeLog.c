@@ -156,9 +156,9 @@ int main ()
 	int hourY = sin(acos(-1.0) * (((h + 9) % 12) / 6.0 + m / 360.0)) * HOUR_HAND_RADIUS + SCREEN_CENTER_Y;
 	// printf("%2d | %2d\n", secondX, secondY);
 
-	drawLine(SCREEN_CENTER_X, SCREEN_CENTER_Y, hourX, hourY);
-	drawLine(SCREEN_CENTER_X, SCREEN_CENTER_Y, minuteX, minuteY);
 	drawLine(SCREEN_CENTER_X, SCREEN_CENTER_Y, secondX, secondY);
+	drawLine(SCREEN_CENTER_X, SCREEN_CENTER_Y, minuteX, minuteY);
+	drawLine(SCREEN_CENTER_X, SCREEN_CENTER_Y, hourX, hourY);
 
 	displayTime();
 
