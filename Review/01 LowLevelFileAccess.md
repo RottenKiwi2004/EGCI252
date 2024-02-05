@@ -82,6 +82,8 @@ return 0;
         - `SEEK_SET`: beginning of file
         - `SEEK_CUR`: current position
         - `SEEK_END`: end of file
+    #### Return:
+    - length in bytes from beginning of file
 
 * ### `setbuf()`: Change buffering type
     #### Syntax:
