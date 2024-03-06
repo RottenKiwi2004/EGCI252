@@ -12,9 +12,9 @@ int main() {
 	pid = fork();
 
 	switch(pid) {
-		case -1: _exit(1); // error
-		case 0: msg = "Child!"; n = 5; break; // child created
-		default: msg = "Parent"; n = 3; break; // parent created
+		case -1: _exit(1);
+		case 0: msg = "Child!"; n = 3; break;
+		default: msg = "Parent"; n = 45; break;
 	}
 
 	for(; n>0; n--) {
@@ -30,10 +30,7 @@ int main() {
 			printf("Child exited with code %d\n", WEXITSTATUS(statVal));
 		else
 			printf("Child termintated abnormally\n");
-	} else{
-    printf("parent process id is %d\n", getppid());
-    printf("child process id is %d\n", getpid());
-  }
+	}
 
 	_exit(0);
 
