@@ -5,19 +5,25 @@
 #include <sys/stat.h>
 #include <time.h>
 #include <unistd.h>
+#include <limits.h>
 
 #define FILE_LENGTH 0x100
+int RDEV;
 
 int randRange(unsigned const low, unsigned const high) {
+	printf("Test\n");
 	unsigned const range = high - low + 1;
-	return low + (int)((double)range * rand() / (RAND_MAX + 1.0));
+	unsigned int randNum;
+	read(RDEV, &randNum, sizeof(randNum));
+	return low + (int)((double)range * randNum / (UINT_MAX + 1.0));
 }
 
 int main(int argc, char *argv[])
 {
 	int fd;
 	void * fileMemory;
-	srand(time(NULL));
+	// srand(time(NULL));
+	RDEV = open("/dev/urandom", O_RDONLY);
 
 	fd = open(argv[1], O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
 	lseek(fd, FILE_LENGTH + 1, SEEK_SET);
